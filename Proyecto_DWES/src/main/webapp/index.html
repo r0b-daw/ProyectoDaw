@@ -15,31 +15,31 @@
     </header>
 
 <section class="main">
-<form action="./formularioInsertar" method="POST">
+<form action="guardarSolicitud.jsp" method="POST">
      <label for="nombre">Don/Doña </label>
-    <input type="text" size="60" id="Nombre" name="nombre" required ><br><br>
+    <input type="text" size="60" id="Nombre" name="nombre"  ><br><br>
 
     <label for="dni">con D.N.I.:</label>
     <input type="text" id="DNI" name="dni" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" required >
 
     <label for="telefono">y teléfono de contacto</label>
-    <input type="tel" id="Tlf" name="telefono" minlength="9" maxlength="9" required><br><br>
+    <input type="tel" id="Tlf" name="telefono" minlength="9" maxlength="9" ><br><br>
 
     <label for="profesor">Profesor/a de:</label>
-    <input type="text" id="Materia" name="materia" required>
+    <input type="text" id="Materia" name="materia" >
     <label>en el IES Augustóbriga de Navalmoral de la Mata,</label><br><br>
 
     <label for="solicitud"><h3>SOLICITA:</h3>conforme al artículo 70 de la ley de funcionarios civiles del estado, le sea<br>
     concedido un permiso para el/los día/s</label>
-    <input type="text" id="FechaPermiso" name="FechaPermiso" required>
+    <input type="text" id="FechaPermiso" name="FechaPermiso" >
     <labe for="motivos">por los motivos justificados<br>que se indican a continuación:<br></labe>
-        <input type="text" size="130" id="Motivo" name="motivo" required>
+        <input type="text" size="130" id="Motivo" name="motivo" >
 
 <p>
 <div class="dia">  
-    <input type="radio" id="opt1" name="completo" value="completo" class="dia">
+    <input type="radio" id="opt1" name="DiaCompleto" value="completo" class="dia">
     <label for="opt1">Día completo (No es necesario cumplimentar la tabla)<br><br></label>
-    <input type="radio" id="opt2" name="nocompleto" value="nocompleto" class="dia">
+    <input type="radio" id="opt2" name="DiaNoCompleto" value="nocompleto" class="dia">
     <label for="opt2">Día no completo (Es necesaria la cumplimentación de la tabla)<br>Horas lectivas y grupos afectados</label>
 </div>   
 </p>
@@ -94,13 +94,13 @@
 <br><br><br>
 
 <label for="fecha">Navalmoral de la Mata a
-<input type="date" required id="FechaEntrega" name="FechaEntrega">
+<input type="date"  id="FechaEntrega" name="FechaEntrega">
  </label>
 
  <br>
  <br>
  <label for="firma">Firma del Solicitante</label><br>        
- Fdo:<input type="text" required id="Firma" name="fecha">      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Firma de la Directora <br> &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;
+ Fdo:<input type="text"  id="Firma" name="fecha">      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Firma de la Directora <br> &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;
   &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fdo: Marta Víctor Vega                
 
