@@ -6,12 +6,17 @@ public class SolicitudVO {
 	private int Tlf;
 	private boolean DiaCompleto,DiaNoCompleto,Denegado,Concedido;
 	
-	private HorarioVO horarioDiurno;
-	private HorarioVO horarionNocturno;
+	private HorarioVO horario;
+
 	
 	
-	
-	
+
+	public HorarioVO getHorario() {
+		return horario;
+	}
+	public void setHorario(HorarioVO horario) {
+		this.horario = horario;
+	}
 	public int getId() {
 		return id;
 	}

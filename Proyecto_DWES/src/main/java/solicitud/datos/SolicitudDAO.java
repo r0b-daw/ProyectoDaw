@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import solicitud.vo.DiurnoVO;
+import solicitud.vo.HorarioVO;
 import solicitud.vo.SolicitudVO;
 
 
@@ -56,6 +56,9 @@ public class SolicitudDAO {
 		
 			
 			status=ps.executeUpdate();
+			
+		
+			
 			
 			con.close();
 		}catch(Exception ex){ex.printStackTrace();}
