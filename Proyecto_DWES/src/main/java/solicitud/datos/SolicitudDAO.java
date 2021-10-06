@@ -41,7 +41,7 @@ public class SolicitudDAO {
 			Connection con=SolicitudDAO.getConnection();
 			PreparedStatement ps=con.prepareStatement("insert into Solicitudes(Nombre,DNI,Tlf,Materia,FechaPermiso,Motivo,FechaEntrega,DiaCompleto,DiaNoCompleto,Firma,Denegado,Concedido,Constancias) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			ps.setString(1,e.getNombre());
-			ps.setString(2,e.getDNI());
+			ps.setString(2,e.getDni());
 			ps.setInt(3,e.getTlf());
 			ps.setString(4,e.getMateria());
 			ps.setString(5,e.getFechaPermiso());
@@ -68,7 +68,7 @@ public class SolicitudDAO {
 			Connection con=SolicitudDAO.getConnection();
 			PreparedStatement ps=con.prepareStatement("update empleados set Nombre=?,DNI=?,Tlf=?,Materia=?,FechaPermiso=?,Motivo=?,FechaEntrega=?,DiaCompleto=?,DiaNocompleto=?,Firma=?,Concedido=?,Denegado=?,Constancias=?,where Id=?");
 			ps.setString(1,e.getNombre());
-			ps.setString(2,e.getDNI());
+			ps.setString(2,e.getDni());
 			ps.setInt(3,e.getTlf());
 			ps.setString(4,e.getMateria());
 			ps.setString(5,e.getFechaPermiso());
@@ -126,7 +126,7 @@ public class SolicitudDAO {
 			if(rs.next()){
 				
 				e.setNombre(rs.getString(1));
-				e.setDNI(rs.getString(2));
+				e.setDni(rs.getString(2));
 				e.setTlf(rs.getInt(3));
 				e.setMateria(rs.getString(4));
 				e.setFechaPermiso(rs.getString(5));
@@ -158,7 +158,7 @@ public class SolicitudDAO {
 			while(rs.next()){
 				SolicitudVO e=new SolicitudVO();
 				e.setNombre(rs.getString(1));
-				e.setDNI(rs.getString(2));
+				e.setDni(rs.getString(2));
 				e.setTlf(rs.getInt(3));
 				e.setMateria(rs.getString(4));
 				e.setFechaPermiso(rs.getString(5));
