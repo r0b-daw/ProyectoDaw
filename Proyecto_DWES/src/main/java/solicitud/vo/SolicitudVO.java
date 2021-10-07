@@ -3,13 +3,10 @@ package solicitud.vo;
 public class SolicitudVO {
 	private int id;
 	private String Nombre,dni,Materia,FechaPermiso,Motivo,FechaEntrega,Firma,Constancias;
-	private int Tlf;
+	private int telefono;
 	private boolean DiaCompleto,DiaNoCompleto,Denegado,Concedido;
 	
 	private HorarioVO horario;
-
-	
-	
 
 	public HorarioVO getHorario() {
 		return horario;
@@ -34,7 +31,7 @@ public class SolicitudVO {
 		return dni;
 	}
 	public void setDni(String dni) {
-		dni = dni;
+		this.dni = dni;
 	}
 	public String getMateria() {
 		return Materia;
@@ -72,11 +69,12 @@ public class SolicitudVO {
 	public void setConstancias(String constancias) {
 		Constancias = constancias;
 	}
-	public int getTlf() {
-		return Tlf;
+	
+	public int getTelefono() {
+		return telefono;
 	}
-	public void setTlf(int tlf) {
-		Tlf = tlf;
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
 	}
 	public boolean isDiaCompleto() {
 		return DiaCompleto;

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import solicitud.vo.HorarioVO;
 import solicitud.vo.SolicitudVO;
 
 
@@ -20,7 +19,7 @@ public class SolicitudDAO {
 			
 			// CARGAR EL FICHERO DE PROPIEDADES
 			Properties properties = new Properties();
-			InputStream input = SolicitudDAO.class.getResourceAsStream("/configuracion/configuracion.properties");
+			InputStream input = SolicitudDAO.class.getResourceAsStream("/configuracion.properties");
 	        properties.load(input);
 
 			String driver = properties.getProperty("driver");
@@ -39,21 +38,21 @@ public class SolicitudDAO {
 		int status=0;
 		try{
 			Connection con=SolicitudDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("insert into Solicitudes(Nombre,DNI,Tlf,Materia,FechaPermiso,Motivo,FechaEntrega,DiaCompleto,DiaNoCompleto,Firma,Denegado,Concedido,Constancias) values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps=con.prepareStatement("insert into Solicitudes(Nombre,DNI,Tlf,Materia,FechaPermiso,Motivo,FechaEntrega,DiaCompleto,DiaNoCompleto,Denegado,Concedido) values (?,?,?,?,?,?,?,?,?,?,?)");
 			ps.setString(1,e.getNombre());
 			ps.setString(2,e.getDni());
-			ps.setInt(3,e.getTlf());
+			ps.setInt(3,e.getTelefono());
 			ps.setString(4,e.getMateria());
 			ps.setString(5,e.getFechaPermiso());
 			ps.setString(6,e.getMotivo());
 			ps.setString(7,e.getFechaEntrega());
 			ps.setBoolean(8,e.isDiaCompleto());
 			ps.setBoolean(9,e.isDiaNoCompleto());
-			ps.setString(10,e.getFirma());
-			ps.setBoolean(11,e.isConcedido());
-			ps.setBoolean(12,e.isDenegado());
-			ps.setString(13,e.getConstancias());
+			ps.setBoolean(10,e.isConcedido());
+			ps.setBoolean(11,e.isDenegado());
+	
 		
+	
 			
 			status=ps.executeUpdate();
 			
@@ -72,7 +71,7 @@ public class SolicitudDAO {
 			PreparedStatement ps=con.prepareStatement("update empleados set Nombre=?,DNI=?,Tlf=?,Materia=?,FechaPermiso=?,Motivo=?,FechaEntrega=?,DiaCompleto=?,DiaNocompleto=?,Firma=?,Concedido=?,Denegado=?,Constancias=?,where Id=?");
 			ps.setString(1,e.getNombre());
 			ps.setString(2,e.getDni());
-			ps.setInt(3,e.getTlf());
+			ps.setInt(3,e.getTelefono());
 			ps.setString(4,e.getMateria());
 			ps.setString(5,e.getFechaPermiso());
 			ps.setString(6,e.getMotivo());
@@ -130,7 +129,7 @@ public class SolicitudDAO {
 				
 				e.setNombre(rs.getString(1));
 				e.setDni(rs.getString(2));
-				e.setTlf(rs.getInt(3));
+				e.setTelefono(rs.getInt(3));
 				e.setMateria(rs.getString(4));
 				e.setFechaPermiso(rs.getString(5));
 				e.setMotivo(rs.getString(6));
@@ -162,7 +161,7 @@ public class SolicitudDAO {
 				SolicitudVO e=new SolicitudVO();
 				e.setNombre(rs.getString(1));
 				e.setDni(rs.getString(2));
-				e.setTlf(rs.getInt(3));
+				e.setTelefono(rs.getInt(3));
 				e.setMateria(rs.getString(4));
 				e.setFechaPermiso(rs.getString(5));
 				e.setMotivo(rs.getString(6));

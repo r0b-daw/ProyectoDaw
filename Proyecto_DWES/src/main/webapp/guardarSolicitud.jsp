@@ -15,7 +15,7 @@ HorarioVO horario= new HorarioVO();
 
 solicitud.setNombre(request.getParameter("nombre"));
 solicitud.setDni(request.getParameter("dni"));
-solicitud.setTlf(Integer.parseInt(request.getParameter("telefono")));
+solicitud.setTelefono(Integer.parseInt(request.getParameter("telefono")));
 solicitud.setMateria(request.getParameter("materia"));
 solicitud.setFechaPermiso(request.getParameter("FechaPermiso"));
 solicitud.setMotivo(request.getParameter("motivo"));
