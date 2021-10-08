@@ -1,12 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@page import="solicitud.datos.SolicitudDAO"%>
+<jsp:useBean id="e" class="solicitud.vo.SolicitudVO"></jsp:useBean>
+<jsp:setProperty property="*" name="e"/>
 
-</body>
-</html>
+<%
+SolicitudDAO.eliminar(e);
+response.sendRedirect("ListarSolicitud.jsp");
+%>

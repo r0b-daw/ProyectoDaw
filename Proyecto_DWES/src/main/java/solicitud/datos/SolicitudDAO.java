@@ -117,7 +117,7 @@ public class SolicitudDAO {
 		
 		return status;
 	}
-	public static SolicitudVO obtenerEmpleadoPorId(int Id){
+	public static SolicitudVO obtenerSolicitudPorId(int Id){
 		SolicitudVO e=new SolicitudVO();
 		
 		try{

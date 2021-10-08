@@ -4,5 +4,5 @@
 
 <%
 int i=SolicitudDAO.modificar(e);
-response.sendRedirect(".jsp");
+response.sendRedirect("ListarSolicitud.jsp");
 %>
