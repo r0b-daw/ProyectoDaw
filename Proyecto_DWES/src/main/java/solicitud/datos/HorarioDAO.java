@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -13,16 +12,15 @@ import solicitud.vo.HorarioVO;
 import solicitud.vo.SolicitudVO;
 
 
-public class SolicitudDAO {
+public class HorarioDAO {
 
 	public static Connection getConnection(){
 		Connection con=null;
-		
 		try{
 			
 			// CARGAR EL FICHERO DE PROPIEDADES
 			Properties properties = new Properties();
-			InputStream input = SolicitudDAO.class.getResourceAsStream("/configuracion.properties");
+			InputStream input = HorarioDAO.class.getResourceAsStream("/configuracion.properties");
 	        properties.load(input);
 
 			String driver = properties.getProperty("driver");
@@ -37,81 +35,77 @@ public class SolicitudDAO {
 		}catch(Exception e){System.out.println(e);}
 		return con;
 	}
-	public static int guardar(SolicitudVO e){
+	
+	
+	public static int guardar(HorarioVO e,int idSolicitud){
 		int status=0;
-		int idGeneradoSolicitud=0;
 		try{
-			Connection con=SolicitudDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("insert into Solicitudes(Nombre,DNI,Tlf,Materia,FechaPermiso,Motivo,FechaEntrega,DiaCompleto,DiaNoCompleto,Denegado,Concedido) values (?,?,?,?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
-			ps.setString(1,e.getNombre());
-			ps.setString(2,e.getDni());
-			ps.setInt(3,e.getTelefono());
-			ps.setString(4,e.getMateria());
-			ps.setString(5,e.getFechaPermiso());
-			ps.setString(6,e.getMotivo());
-			ps.setString(7,e.getFechaEntrega());
-			ps.setBoolean(8,e.isDiaCompleto());
-			ps.setBoolean(9,e.isDiaNoCompleto());
-			ps.setBoolean(10,e.isConcedido());
-			ps.setBoolean(11,e.isDenegado());
-	
-	
+			Connection con=HorarioDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("insert into HORAS_GRUPOS (Hora,Grupo,Aula,Tipo,Permiso) values (?,?,?,?,?)");
+			ps.setInt(5,idSolicitud);
+			ps.setString(2,e.getGrupo1());
+			ps.setString(2,e.getGrupo2());
+			ps.setString(2,e.getGrupo3());
+			ps.setString(2,e.getGrupo4());
+			ps.setString(2,e.getGrupo5());
+			ps.setString(2,e.getGrupo6());
+			ps.setString(3,e.getAula1());
+			ps.setString(3,e.getAula2());
+			ps.setString(3,e.getAula3());
+			ps.setString(3,e.getAula4());
+			ps.setString(3,e.getAula5());
+			ps.setString(3,e.getAula6());
+			ps.setString(4,e.getTipo());
+
 			status=ps.executeUpdate();
 			
-			ResultSet generatedKeys = ps.getGeneratedKeys();
-			if (generatedKeys.next()) {
-			         idGeneradoSolicitud = generatedKeys.getInt(1);
-			}
-			
-			HorarioDAO.guardar(e.getHorario(),idGeneradoSolicitud);
 		
-			
-			con.close();
 		}catch(Exception ex){ex.printStackTrace();}
 		
 		return status;
 	}
 	
 	
-	public static int modificar(SolicitudVO e){
+	public static int modificarHorario(HorarioVO e,int idSolicitud){
 		int status=0;
 		try{
-			Connection con=SolicitudDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("update empleados set Nombre=?,DNI=?,Tlf=?,Materia=?,FechaPermiso=?,Motivo=?,FechaEntrega=?,DiaCompleto=?,DiaNocompleto=?,Firma=?,Concedido=?,Denegado=?,Constancias=?,where Id=?");
-			ps.setString(1,e.getNombre());
-			ps.setString(2,e.getDni());
-			ps.setInt(3,e.getTelefono());
-			ps.setString(4,e.getMateria());
-			ps.setString(5,e.getFechaPermiso());
-			ps.setString(6,e.getMotivo());
-			ps.setString(7,e.getFechaEntrega());
-			ps.setBoolean(8,e.isDiaCompleto());
-			ps.setBoolean(9,e.isDiaNoCompleto());
-			ps.setString(10,e.getFirma());
-			ps.setBoolean(11,e.isConcedido());
-			ps.setBoolean(12,e.isDenegado());
-			ps.setString(13,e.getConstancias());
-			
+			Connection con=HorarioDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("insert into HORAS_GRUPOS (Hora,Grupo,Aula,Tipo,Permiso) values (?,?,?,?,?)");
+			ps.setInt(5,idSolicitud);
+			ps.setString(2,e.getGrupo1());
+			ps.setString(2,e.getGrupo2());
+			ps.setString(2,e.getGrupo3());
+			ps.setString(2,e.getGrupo4());
+			ps.setString(2,e.getGrupo5());
+			ps.setString(2,e.getGrupo6());
+			ps.setString(3,e.getAula1());
+			ps.setString(3,e.getAula2());
+			ps.setString(3,e.getAula3());
+			ps.setString(3,e.getAula4());
+			ps.setString(3,e.getAula5());
+			ps.setString(3,e.getAula6());
+			ps.setString(4,e.getTipo());
+
 			status=ps.executeUpdate();
 			
-			con.close();
+		
 		}catch(Exception ex){ex.printStackTrace();}
 		
 		return status;
 	}
-//	public static int eliminar(int id){
-//		int status=0;
-//		try{
-//			Connection con=SolicitudDAO.getConnection();
-//			PreparedStatement ps=con.prepareStatement("delete from Solicitudes where Id=?");
-//			ps.setInt(1,id);
-//			status=ps.executeUpdate();
-//			
-//			con.close();
-//		}catch(Exception e){e.printStackTrace();}
-//		
-//		return status;
-//	}
+	public static int eliminarHorario(int id){
+		int status=0;
+		try{
+			Connection con=SolicitudDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("delete from Solicitudes where Id=?");
+			ps.setInt(1,id);
+			status=ps.executeUpdate();
+			
+			con.close();
+		}catch(Exception e){e.printStackTrace();}
+		
+		return status;
+	}
 	
 	public static int eliminar(SolicitudVO Solicitudes){
 		int status=0;
@@ -189,3 +183,4 @@ public class SolicitudDAO {
 		return list;
 	}
 }
+
