@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Permiso</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>  
+<div class="contenedor">
+    <header>
+        <nav>
+        <img src="logo.jpg">
+    </nav>
+    </header>
+
+<section class="main">
+<form action="guardarSolicitud.jsp" method="POST">
+     <label for="nombre">Don/Doña </label>
+    <input type="text" size="60" id="Nombre" name="nombre"  ><br><br>
+
+    <label for="dni">con D.N.I.:</label>
+    <input type="text" id="DNI" name="dni" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" required >
+
+    <label for="telefono">y teléfono de contacto</label>
+    <input type="tel" id="Tlf" name="telefono" minlength="9" maxlength="9" ><br><br>
+
+    <label for="profesor">Profesor/a de:</label>
+    <input type="text" id="Materia" name="materia" >
+    <label>en el IES Augustóbriga de Navalmoral de la Mata,</label><br><br>
+
+    <label for="solicitud"><h3>SOLICITA:</h3>conforme al artículo 70 de la ley de funcionarios civiles del estado, le sea<br>
+    concedido un permiso para el/los día/s</label>
+    <input type="text" id="FechaPermiso" name="FechaPermiso" >
+    <label for="motivos">por los motivos justificados<br>que se indican a continuación:<br></labe>
+        <input type="text" size="130" id="Motivo" name="motivo" >
+
+<p>
+<div class="dia">  
+    <input type="radio" id="opt1" name="Dia" value="completo" class="dia">
+    <label for="opt1">Día completo (No es necesario cumplimentar la tabla)<br><br></label>
+    <input type="radio" id="opt2" name="Dia" value="nocompleto" class="dia">
+    <label for="opt2">Día no completo (Es necesaria la cumplimentación de la tabla)<br>Horas lectivas y grupos afectados</label>
+</div>   
+</p>
+
+<br>
+
+<label>Horario</label>
+<select name="tipoHorario" size="1">
+<option value="diurno">DIURNO</option>
+<option value="nocturno">NOCTURNO</option>    
+</select><br><br>
+
+<table>
+<tr>
+<th>hora</th>
+<th>GRUPO</th>
+<th>AULA</th>
+</tr>
+<tr>  
+<th>1ª</th>    
+    <th><label for="grupo"></label><input type="text" id="grupo" name="grupo1" size="40"></th> 
+    <th><label for="aula"></label><input type="text" id="aula" name="aula1"></th> 
+</tr>
+<tr>
+<th>2ª</th>
+    <th><label for="grupo"></label><input type="text" id="grupo" name="grupo2" size="40"></th>
+    <th><label for="aula"></label><input type="text" id="aula" name="aula2"></th>    
+</tr>
+<tr>
+    <th>3ª</th>
+    <th><label for="grupo"></label><input type="text" id="grupo" name="grupo3" size="40"></th>
+    <th><label for="aula"></label><input type="text" id="aula" name="aula3"></th>    
+    </tr>
+<tr>  
+    <th>4ª</th>
+    <th><label for="grupo"></label><input type="text" id="grupo" name="grupo4" size="40"></th>
+    <th><label for="aula"></label><input type="text" id="aula" name="aula4"></th>    
+</tr>
+<tr>
+    <th>5ª</th>
+    <th><label for="grupo"></label><input type="text" id="grupo" name="grupo5" size="40"></th>
+    <th><label for="aula"></label><input type="text" id="aula" name="aula5"></th>    
+</tr>
+<tr>
+    <th>6ª</th>
+    <th><label for="grupo"></label><input type="text" id="grupo" name="grupo6" size="40"></th>
+    <th><label for="aula"></label><input type="text" id="aula" name="aula6"></th>    
+</tr>
+</table>
+
+
+<br><br><br>
+
+<label for="fecha">Navalmoral de la Mata a
+<input type="date"  id="FechaEntrega" name="FechaEntrega">
+ </label>
+
+ <br>
+ <br>
+ <label for="firma">Firma del Solicitante</label><br>        
+ Fdo:<input type="text"  id="Firma" name="firma">      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Firma de la Directora <br> &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fdo: Marta Víctor Vega                
+
+<br><br>         
+<fieldset>
+<label class="decision"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <input type="radio" id="Denegado" name="resolucion" value="denegado" class="decision">
+    DENEGADO
+  </label>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<label class="decision">
+    <input type="radio" id="Concedido" name="resolucion" value="concedido" class="decision">  
+    CONCEDIDO
+</label>    
+</fieldset><br><br>
+
+<label for="motivos">
+Se adjuntan como constancia justificativa los siguientes documentos:
+<input type="file" name="file" id="Constancia">     
+</label>
+
+<br><br>
+<p><pre>
+                                                                               Delegación Provincial de Educación Cáceres</pre></p>
+<br><br>
+<input type="submit" value="Enviar Solicitud">
+<input type="reset" value="Borrar Datos Introducidos">
+<a href="ListarSolicitud.jsp">
+	<input type="button" value="Volver" >
+</a>
+</form>
+</div>
+</body>
+</html>

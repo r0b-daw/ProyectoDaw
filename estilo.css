@@ -1,0 +1,69 @@
+body {
+    background-color: rgb(190, 204, 229);
+}
+
+.contenedor{
+    width: 90%;
+    gap: 2em;
+    margin: 10px auto;
+    padding: 10px 40px;
+    display: grid;
+    grid-auto-columns: 1fr 2fr;
+    grid-template-areas: "header header"
+                        "  section section"
+                        "  section section"
+                        "  section section ";
+    grid-template-areas: 20vh 20vh 20vh;                               
+    background-color: white;
+}
+
+aside{
+    grid-area: aside;
+    grid-column: 1;
+    grid-row: 5;
+   
+}
+
+header {
+    grid-area: header;
+}
+
+table {
+    border:1px solid black;
+    width:40%;
+}
+
+th {
+    border: 1px solid black;
+}
+
+.contenedor h3 { 
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.contenedor img{
+    float: right;
+    width: 20%;
+    height: 20%;
+    background-color: lightblue;
+}
+
+section {
+    grid-area: section;
+    display: grid;
+}  
+
+.checkbox {
+    margin-right: 30px;
+}
+
+input{
+	border-radius:5px;
+	border: 1px solid black;
+}
+
+
+
+
+
